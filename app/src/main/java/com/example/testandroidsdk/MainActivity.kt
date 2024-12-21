@@ -1,5 +1,6 @@
 package com.example.testandroidsdk
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
@@ -20,26 +21,21 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.deema.v1.DeemaSDKResult
-import com.deema.v1.PaymentStatus
 import com.example.testandroidsdk.ui.theme.TestAndroidSdkTheme
 import me.deema.sdk.DeemaSDK
 import me.deema.sdk.DeemaSDKResult
 import me.deema.sdk.Environment
 import me.deema.sdk.PaymentStatus
-import me.deema.sdk.ui.theme.DeemaSDKAndroidTheme
 
 class MainActivity : ComponentActivity() {
+    @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             TestAndroidSdkTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                Scaffold(modifier = Modifier.fillMaxSize()) {
+                    Greeting()
                 }
             }
         }
@@ -81,7 +77,7 @@ fun Greeting() {
         )
         Button(onClick = {
             DeemaSDK.launch(
-                environment = Environment.Production,
+                environment = Environment.Sandbox,
                 currency = "KWD",
                 purchaseAmount = "100.00",
                 sdkKey = "your-production-sdk-key",
@@ -98,6 +94,6 @@ fun Greeting() {
 @Composable
 fun GreetingPreview() {
     TestAndroidSdkTheme {
-        Greeting("Android")
+        Greeting()
     }
 }

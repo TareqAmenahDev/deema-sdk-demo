@@ -66,6 +66,6 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
-    implementation("com.github.sarfarajbiswas:DeemaSDKV1:1.0")
+    implementation("com.github.ghazwan-safi:deema-andriod-sdk:0.0.2")
 
 }
